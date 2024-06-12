@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ionic-PHP-Rest-Giriş
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  <ion-item>
+    <ion-input [(ngModel)]="userData.username" label="Kullanıcı Adı: " labelPlacement="floating" type="text" placeholder="Kullanıcı adınızı giriniz"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="userData.password" label="Şifre: " labelPlacement="floating" type="password" placeholder="Şifrenizi giriniz"></ion-input>
+  </ion-item>
+
+  <br>
+  <ion-button (click)="giris()" expand="full" color="success">
+    Giriş Yap
+  </ion-button>
+</ion-list>
+<ion-button  fill="clear" [routerLink]="['/kayit']" >
+  Kayıt Ol
+</ion-button>
+</ion-content>

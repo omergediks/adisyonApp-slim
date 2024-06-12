@@ -1,0 +1,7 @@
+{
+  "name": "ionicPHPRestApi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

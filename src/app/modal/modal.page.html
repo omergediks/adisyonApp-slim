@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Sipariş Ver</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="kapat()">
+        <ion-icon slot="start" name="exit"></ion-icon>
+        Kapat
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Ana Yemek</ion-label>
+      <ion-select [(ngModel)]="selectedMainCourse" multiple="true">
+        <ion-select-option *ngFor="let item of menu.mainCourses">{{item}}</ion-select-option>
+      </ion-select>
+      <ion-input [(ngModel)]="quantities.mainCourse" type="number" placeholder="Adet" min="1"></ion-input>
+      <ion-button (click)="addItem('mainCourse')">Ekle</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Salata</ion-label>
+      <ion-select [(ngModel)]="selectedSalad" multiple="true">
+        <ion-select-option *ngFor="let item of menu.salads">{{item}}</ion-select-option>
+      </ion-select>
+      <ion-input [(ngModel)]="quantities.salad" type="number" placeholder="Adet" min="1"></ion-input>
+      <ion-button (click)="addItem('salad')">Ekle</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>İçecekler</ion-label>
+      <ion-select [(ngModel)]="selectedDrink" multiple="true">
+        <ion-select-option *ngFor="let item of menu.drinks">{{item}}</ion-select-option>
+      </ion-select>
+      <ion-input [(ngModel)]="quantities.drink" type="number" placeholder="Adet" min="1"></ion-input>
+      <ion-button (click)="addItem('drink')">Ekle</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tatlılar</ion-label>
+      <ion-select [(ngModel)]="selectedDessert" multiple="true">
+        <ion-select-option *ngFor="let item of menu.desserts">{{item}}</ion-select-option>
+      </ion-select>
+      <ion-input [(ngModel)]="quantities.dessert" type="number" placeholder="Adet" min="1"></ion-input>
+      <ion-button (click)="addItem('dessert')">Ekle</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Not</ion-label>
+      <ion-textarea [(ngModel)]="order.note" placeholder="Notunuzu girin"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Eklenen Siparişler</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of addedItems">
+      {{item}}
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="submitOrder()" expand="full">
+    Sipariş Ver
+  </ion-button>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ionic-PHP-Rest-Kayit
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  <ion-item>
+    <ion-input [(ngModel)]="userData.name" label="Ad: " labelPlacement="floating" type="text" placeholder="Adınızı giriniz"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="userData.email" label="Eposta: " labelPlacement="floating" type="text" placeholder="e-posta adresinizi giriniz"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="userData.username" label="Kullanıcı Adı: " labelPlacement="floating" type="text" placeholder="Kullanıcı adınızı giriniz"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="userData.password" label="Şifre: " labelPlacement="floating" type="password" placeholder="Şifrenizi giriniz"></ion-input>
+  </ion-item>
+
+  <br>
+  <ion-button (click)="kayit()" expand="full" color="warning">
+    Kayit Ol
+  </ion-button>
+</ion-list>
+<ion-button  fill="clear" [routerLink]="['/home']" >
+  Giriş Yap
+</ion-button>
+</ion-content>

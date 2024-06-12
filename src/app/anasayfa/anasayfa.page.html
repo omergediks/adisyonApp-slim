@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Anasayfa</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="ekle()">
+        <ion-icon slot="start" name="add"></ion-icon>
+        Yeni
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="cikis_mesaj('Dikkat','Çıkış yapmak istiyor musunuz?')">
+        <ion-icon slot="start" name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let mesaj of mesajlar">
+    <ion-list>
+      <ion-item-sliding [id]="'slidingItem'+mesaj.feed_id">
+        <ion-item>
+          <ion-card-content>
+            <div class="feed-content">{{mesaj.feed}}</div>
+            <span>{{zamanDonustur(mesaj.created)}}</span>
+            <br>
+            <span>User: {{mesaj.username}}</span>
+          </ion-card-content>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="warning" (click)="duzenle(mesaj)">
+            Düzenle
+          </ion-item-option>
+          <ion-item-option color="danger" (click)="silOnay(mesaj.feed_id)">
+            Sil
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
+</ion-content>
